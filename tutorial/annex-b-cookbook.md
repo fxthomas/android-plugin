@@ -42,7 +42,7 @@ Libraries that are provided by Android (Maps,...) need to be specified with
 
 As far as I know, unless you find a specific version in your Maven repository,
 you have to find the right library JAR in your SDK path, and manually copy it
-to your project's `lib/` folder.
+to your project's `libs/` folder.
 
 These libraries usually are in (for platform version 16, YMMV) :
 `${ANDROID_SDK_HOME}/add-ons/addon-google_apis-google-16/libs`
