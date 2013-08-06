@@ -118,3 +118,46 @@ informations and print the seeds.
 
 _**Note:** In my experience, this makes ProGuard run much slower than usual, so
 keep it for debugging hard cases!_
+
+# ProGuard recipes
+
+As noted [here](https://groups.google.com/forum/#!topic/scala-on-android/z9ygY9ucW7o),
+coming up with the right ProGuard configuration for a particular library can be tedious
+and takes time. In this section we intend to collect community-submitted recipes that
+should put you on track in no time.
+
+##### Jackson 1.9.x (“old”, http://jackson.codehaus.org/)
+
+```scala
+proguardOptions ++= Seq(
+  "-keepattributes *Annotation*,EnclosingMethod",
+  "-keepnames class com.codehaus.jackson.** { *; }"
+)
+```
+
+##### Ektorp (https://github.com/helun/Ektorp/)
+
+```scala
+proguardOptions ++= Seq(
+  "-keep class org.ektorp.Attachment { *; }"
+)
+```
+
+Additionally needs settings from *Jackson 1.9.x* (see above).
+
+##### Couchbase-Lite (https://github.com/couchbase/couchbase-lite-android)
+
+
+```scala
+proguardOptions ++= Seq(
+  "-keep class com.couchbase.cblite.router.CBLRouter { *; }",
+  "-keep class com.couchbase.touchdb.TDCollateJSON { *; }",
+  "-keepclasseswithmembers class * { native <methods>; }"
+)
+```
+
+Additionally needs settings from *Ektorp* and *Jackson 1.9.x* (see above).
+
+##### Akka (http://akka.io)
+
+https://gist.github.com/bjornharrtell/3307987

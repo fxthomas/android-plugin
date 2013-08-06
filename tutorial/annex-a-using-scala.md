@@ -210,4 +210,6 @@ Here are a few Scala libraries you might want to take a look at :
   * [Scaloid](http://www.scaloid.org): A great general-purpose Scala-ification
     of the Android APIs
 
+  * [Macroid](https://github.com/stanch/macroid): An Android layout DSL and advanced concurrency utilities
+
   * [Scala-IO](http://www.scala-io.org): For doing all kinds of IO operations
