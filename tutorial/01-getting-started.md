@@ -109,7 +109,7 @@ unless explicitely specified._
 Plugin definitions go in `project/plugins.sbt` :
 
 ```scala
-addSbtPlugin("org.scala-sbt" % "sbt-android" % "0.7-SNAPSHOT")
+addSbtPlugin("org.scala-sbt" % "sbt-android" % "0.7")
 ```
 
 App configuration goes in `build.sbt` :

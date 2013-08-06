@@ -43,13 +43,13 @@ SBT-Android is a SBT _plugin_, and as such is set up in `project/plugins.sbt`
 by adding a line that looks like this :
 
 ```scala
-addSbtPlugin("org.scala-sbt" % "sbt-android" % "0.7-SNAPSHOT")
+addSbtPlugin("org.scala-sbt" % "sbt-android" % "0.7")
 ```
 
 _**Note:** Plugins are essentially additional classes loaded by SBT on the
 project classpath. Here we use a Maven-style reference : `org.scala-sbt` is the
 artifact organization, `sbt-android` is the artifact name, and
-`0.7-SNAPSHOT` is the version._
+`0.7` is the version._
 
 # Using SBT
 
