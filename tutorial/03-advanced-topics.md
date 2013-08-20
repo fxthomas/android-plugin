@@ -97,6 +97,23 @@ We use a few methods that may need explanation :
 [SBT-Idea](https://github.com/mpeltonen/sbt-idea) can be used to generate
 Android IntelliJ projects from SBT.
 
+For now, you need to use a the android-support branch of
+https://github.com/fxthomas/sbt-idea:
+
+```bash
+> git clone https://github.com/fxthomas/sbt-idea
+Cloning into 'sbt-idea'...
+> cd sbt-idea
+> checkout android-support
+Branch android-support set up to track remote branch android-support from origin.
+Switched to a new branch 'android-support'
+> sbt publish-local
+[info] Loading global plugins from ...
+...
+```
+
+This will create a `1.5.0-SNAPSHOT` release in your local ivy repository.
+
 You can include it, like any plugin, in your `project/plugins.sbt` :
 
 ```scala
