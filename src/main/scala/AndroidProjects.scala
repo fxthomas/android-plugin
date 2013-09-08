@@ -7,65 +7,6 @@ import AndroidPlugin._
 
 object AndroidProjects {
 
-  object Test {
-
-    /**
-     * Default test project settings
-     */
-    lazy val defaults =
-      AndroidBase.globalSettings ++
-      AndroidNdk.globalSettings ++
-      inConfig(Compile)(
-        AndroidBase.settings ++
-        AndroidManifestGenerator.settings ++
-        AndroidPreload.settings ++
-        AndroidInstall.settings ++
-        AndroidDdm.settings ++
-        AndroidTest.settings ++
-        AndroidNdk.settings ++
-        TypedResources.settings ++
-        TypedLayouts.settings ++
-        Seq(
-          // Test projects are Debug projects by default
-          useDebug := true,
-
-          // Test projects are usually pretty small, so no need for Proguard
-          useProguard := false,
-
-          // The Scala library is already imported by the main project
-          usePreloaded := false,
-
-          // It's highly unlikely that you'll need typed resources in test
-          // projects, but you can enable it afterwards anyway, if you really
-          // need it.
-          useTypedResources := false,
-          useTypedLayouts := false
-        )
-      )
-
-    /**
-     * Create a test Android project.
-     *
-     * See sbt.Project.apply definition:
-     *    http://www.scala-sbt.org/release/api/sbt/Project$.html
-     */
-    def apply(
-      id: String,
-      base: File,
-      aggregate: => Seq[ProjectReference] = Nil,
-      dependencies: => Seq[ClasspathDep[ProjectReference]] = Nil,
-      delegates: => Seq[ProjectReference] = Nil,
-      settings: => Seq[sbt.Project.Setting[_]] = Seq.empty,
-      configurations: Seq[Configuration] = Configurations.default
-    ) = Project(id,
-                base,
-                aggregate,
-                dependencies,
-                delegates,
-                defaultSettings ++ defaults ++ settings,
-                configurations)
-  }
-
   object Standard {
 
     // Default Android settings for standard projects
@@ -91,6 +32,7 @@ object AndroidProjects {
       AndroidPreload.settings ++
       AndroidInstall.settings ++
       AndroidDdm.settings ++
+      AndroidTest.settings ++
       AndroidLaunch.settings ++
       AndroidNdk.settings ++
       TypedResources.settings ++

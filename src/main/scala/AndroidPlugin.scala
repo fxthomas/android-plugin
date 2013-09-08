@@ -21,12 +21,8 @@ object AndroidPlugin extends Plugin {
   // Android default targets
   val Target = AndroidDefaultTargets
 
-  // Standard projects
+  // Standard projects and configurations
   val AndroidProject = AndroidProjects.Standard
-  val AndroidTestProject = AndroidProjects.Test
-
-  // Standard configurations
-  lazy val androidTest = AndroidTestProject.defaults
   lazy val androidDefaults = AndroidProject.defaults
 
   // Additional configuration for those using Java/Ant projects
