@@ -147,7 +147,6 @@ Additionally needs settings from *Jackson 1.9.x* (see above).
 
 ##### Couchbase-Lite (https://github.com/couchbase/couchbase-lite-android)
 
-
 ```scala
 proguardOptions ++= Seq(
   "-keep class com.couchbase.cblite.router.CBLRouter { *; }",
@@ -158,6 +157,23 @@ proguardOptions ++= Seq(
 
 Additionally needs settings from *Ektorp* and *Jackson 1.9.x* (see above).
 
-##### Akka (http://akka.io)
+##### Akka 2.2.3 (https://akka.io)
 
-https://gist.github.com/bjornharrtell/3307987
+```scala
+proguardOptions ++= Seq(
+  "-keep class akka.actor.LightArrayRevolverScheduler { *; }",
+  "-keep class akka.actor.LocalActorRefProvider { *; }",
+  "-keep class akka.actor.CreatorFunctionConsumer { *; }",
+  "-keep class akka.actor.TypedCreatorFunctionConsumer { *; }",
+  "-keep class akka.dispatch.BoundedDequeBasedMessageQueueSemantics { *; }",
+  "-keep class akka.dispatch.UnboundedMessageQueueSemantics { *; }",
+  "-keep class akka.dispatch.UnboundedDequeBasedMessageQueueSemantics { *; }",
+  "-keep class akka.dispatch.DequeBasedMessageQueueSemantics { *; }",
+  "-keep class akka.actor.LocalActorRefProvider$Guardian { *; }",
+  "-keep class akka.actor.LocalActorRefProvider$SystemGuardian { *; }",
+  "-keep class akka.dispatch.UnboundedMailbox { *; }",
+  "-keep class akka.actor.DefaultSupervisorStrategy { *; }",
+  "-keep class akka.event.slf4j.Slf4jLogger { *; }",
+  "-keep class akka.event.Logging$LogExt { *; }"
+)
+```
