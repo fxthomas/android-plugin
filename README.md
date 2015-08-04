@@ -1,3 +1,5 @@
+*Note: This plugin is largely unmaintained and should not be used anymore. Use [pfn/android-sdk-plugin](https://github.com/pfn/android-sdk-plugin) instead.*
+
 # Build Scala Android apps using Scala
 
 sbt-android-plugin is an extension for the Scala build tool [sbt][] which
